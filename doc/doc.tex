@@ -1,0 +1,91 @@
+\documentclass[11pt, a4paper, titlepage]{article}
+
+% Set document dimensions
+\usepackage[paper=a4paper,top=1cm,left=2cm,right=2cm,bottom=2cm, includefoot]{geometry}
+\usepackage{float}
+\usepackage[final]{pdfpages} % inludesvg
+
+% Czech fonts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{wrapfig}
+% \usepackage{titlesec}
+\usepackage{color} % barvy
+\usepackage{xcolor} % vytváření barev
+\usepackage{multicol}
+\usepackage{newverbs}
+\usepackage{lipsum}
+
+%\usepackage{fancyhdr}
+
+\usepackage{fancyhdr}
+
+
+\lstnewenvironment{code}[1][]%
+{\noindent\minipage{\linewidth}\lstset{frameround=fttf,#1}}%
+{\endminipage}%
+
+\definecolor{codeprimary}{HTML}{3300CC}
+\colorlet{keywordstyle}{codeprimary!50!black}
+\lstset{
+    language=C++,
+    frameround=fftf,
+    breaklines=true,
+    keywordstyle=\color{keywordstyle}\ttfamily,
+    basicstyle=\color{codeprimary},
+    numberstyle=\color{black},
+    backgroundcolor=\color{white},
+    frame=single,
+    tabsize=4,
+    breaklines=true,
+    captionpos=t,
+    xleftmargin=\dimexpr\fboxsep+1pt\relax,
+    xrightmargin=\fboxsep,
+    numbers=none,
+    showstringspaces=false,
+    escapeinside={\#!}{\^^M},
+    belowcaptionskip=0pt,
+    belowskip=0pt,
+    aboveskip=0pt,
+}
+
+\makeatletter
+\newcommand\ic[1][green]{%
+\@testopt{\@ic{#1}}{-#1}% Handle second optional argument
+}
+\def\@ic#1[#2]{%
+\Collectverb{\@@ic{#1}{#2}}%
+}
+\def\@@ic#1#2#3{%
+{\lstinline[basicstyle=\ttfamily\color{codeprimary},breaklines=true]|#3|}%
+}
+\newcommand{\icmacro}[1]{{\lstinline[basicstyle=\ttfamily\color{codeprimary},breaklines=true]|#1|}}
+\makeatother
+
+
+\setlength{\headheight}{3em}
+\newcommand{\subsectionbreak}{\clearpage}
+
+\begin{document}
+    \input{_titlepage.tex}
+    \pagestyle{fancy}
+    \lfoot{\emph{VUT FIT - IMS}}
+    \rfoot{\emph{Josef Kolář, Iva Kavánková}}
+    \rhead{...}
+    \lhead{Modelování a simulace}
+    \tableofcontents
+    \pagebreak
+    %\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+    \section{Úvod}
+    \lipsum
+
+    \addcontentsline{toc}{section}{Reference}
+    \begin{thebibliography}{zdroje}
+        \bibitem{farm} Cvrččí farma
+    \end{thebibliography}
+
+\end{document}
