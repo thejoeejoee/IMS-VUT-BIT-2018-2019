@@ -93,328 +93,38 @@
     (viz [\ref{ims}], slajd č. 9).
 
     \subsection{Ověřování validity modelu}
-    Validita (viz [\ref{ims}], slajd č. 37) byla ověřována při postupném testování.
+    Validita (viz [\ref{ims}], slajd č. 37) byla ověřována při našem postupném testování. Výsledky byly porovnány s dříve získanými daty.
 
+    \section{Rozbor tématu a použitých metod/technologií}
+    Pro modelování a simulaci hmyzí farmy je nutné znát její reálný chod. \\
+    Životní cyklus cvrčka začíná jeho vylíhnutím, poté následuje
+
+     \subsection{Použité postupy}
+    Program byl implementován v jazyce C++ s pomocí simulační knihovny SIMLIB (viz [\ref{simlib}]). To usnadňuje objektový návrh
+    a třídy vhodné por simulaci konkrétního zadání. Použité algoritmy byly použity ze slajdů k předmětu IMS (viz [\ref{ims}]), slajdy
+    z prvního (viz [\ref{prvnidemo}]) a druhého (viz [\ref{druhedemo}]) demonstračního cvičení z tohoto předmětu.
 
     \\
-Smysl této povinné osnovy je dát praktický návod pro sepsání technické
-zprávy k projektu. Číslované kapitoly jsou \textbf{naprosto závazné} -
-jejich případná absence bude hodnocena bodovou srážkou. Berte technickou
-simulační zprávu jako formu protokolu. Rozhodně se nejedná o beletrii,
-váš osobní příběh nebo filosofickou úvahu - tyto formy si můžete dovolit
-až v pokročilejším věku (kdy zřejmě už pochopíte, že beztak v technice
-jsou preferována relevantní fakta, specificky u platících
-zákazníků).\\[2\baselineskip]Kapitoly první úrovně mají závazný název.
-Kapitoly druhé úrovně nemají závazný název, upravte si název dle
-potřeby. V dokumentu jsou povinné tématické bloky kapitol první a druhé
-úrovně s nenulovým obsahem. Kapitola první úrovně předpokládá určitý
-text (uvedeno v popisu) rozšířený o témata kapitol druhé
-úrovně.\\[2\baselineskip]\textbf{Podstatné je, že technická zpráva se
-neobhajuje a nekomentuje. Všecko relevantní má být obsaženo v ní. Nejsou
-přípustná žádná dodatečná ústní sdělení. Pokud čtenář z vaší technické
-zprávy něco chybně pochopí, je to vždy vaše vina.}\\[2\baselineskip]Je
-jasné, že různá témata budou klást důraz na jiné partie zprávy:\\
 
-\begin{itemize}
-\tightlist
-\item
-  implementační - literatura, koncepce, zpracování implementace, ověření
-  na průkazném demopříkladě
-\item
-  modelační/aplikační - literatura a zjišťování v terénu, zdůvodnění
-  koncepce modelu, simulační studie vedoucí k jasnému závěru
-\end{itemize}
+    \section{Koncepce modelu}
 
-Bez ohledu na charakter tématu lze v technické dokumentaci VŽDY odděleně
-popsat:\\
+    \subsection{Návrh konceptuálního modelu}
 
-\begin{itemize}
-\tightlist
-\item
-  Úvod a motivaci
-\item
-  Shrnutí relevantních faktů, zdroje informací
-\item
-  Koncepci metody, přístupu, modelu
-\item
-  Implementaci metody, modelu
-\item
-  Experimentování
-\item
-  Závěr
-\end{itemize}
+    \subsection{Formy konceptuálního modelu}
 
-\subsubsection{1. Úvod}\label{uxfavod}
+    \section{Architektura simulačního modelu}
 
-Úvod musí vysvětlit, \textbf{proč se celá práce dělá a proč má uživatel
-výsledků váš dokument číst} (prosím, projekt sice děláte pro získání
-zápočtu v IMS, ale mohou existovat i jiné důvody). Případně, co se při
-čtení dozví.\\[2\baselineskip]Například:\\
+    \subsection{Rozbor implementace}
 
-\begin{itemize}
-\tightlist
-\item
-  v této práci je řešena implementace \ldots{}, která bude použita pro
-  sestavení modelu \ldots{}
-\item
-  na základě modelu a simulačních experimentů bude ukázáno chování
-  systému \ldots{} v podmínkách \ldots{}
-\item
-  smyslem experimentů je demonstrovat, že pokud by \ldots{}, pak by
-  \ldots{}
-\item
-  Poznámka: u vyžádaných zpráv se může uvést, že zpráva vznikla na
-  základě požadavku \ldots{} (u školní práce takto zdůvod'novat projekt
-  ovšem nelze, že). Je velmi praktické zdůvodnit, \textbf{v čem je práce
-  náročná a proto přínos autora nepopiratelný} (např. pro zpracování
-  modelu bylo nutno nastudovat \ldots{}, zpracovat, \ldots{} model je ve
-  svém oboru zajímavý/ojedinělý v \ldots{}).
-\end{itemize}
+    \section{Podstata simulačních experimentů a jejich průběh}
 
-Podkapitoly:\\
+    \subsection{Postup experimentování}
 
-\begin{itemize}
-\tightlist
-\item
-  kapitola 1.1: Kdo se na práci podílel jako autor, odborný konzultant,
-  dodavatel odborných faktů, význačné zdroje literatury/fakt, \ldots{}
+    \subsection{Dokumentace jednotlivých experimentů}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    je ideální, pokud jste vaši koncepci konzultovali s nějakou
-    autoritou v oboru (v IMS projektu to je hodnoceno, ovšem není
-    vyžadováno)
-  \item
-    pokud nebudete mít odborného konzultanta, nevadí. Nelze ovšem
-    tvrdit, že jste celé dílo vymysleli s nulovou interakcí s okolím a
-    literaturou.
-  \end{itemize}
-\item
-  kapitola 1.2: V jakém prostředí a za jakých podmínek probíhalo
-  experimentální ověřování validity modelu -- pokud čtenář/zadavatel
-  vaší zprávy neuvěří ve validitu vašeho modelu, \textbf{obvykle vaši
-  práci odmítne už v tomto okamžiku}.
-\end{itemize}
+    \subsection{Závěry experimentů}
 
-\subsubsection{2. Rozbor tématu a použitých
-metod/technologií}\label{rozbor-tuxe9matu-a-pouux17eituxfdch-metodtechnologiuxed}
-
-Shrnutí všech podstatných faktů, které se týkají zkoumaného systému (co
-možná nejvěcnějším a technickým (ideálně formálně matematickým)
-přístupem, žádné literární příběhy). \textbf{Podstatná fakta o systému
-musí být zdůvodněna a podepřena důvěryhodným zdrojem} (vědecký článek,
-kniha, osobní měření a zjišťování). Pokud budete tvrdit, že ovce na
-pastvě sežere dvě kila trávy za den, musí existovat jiný (důvěryhodný)
-zdroj, který to potvrdí. Toto shrnutí určuje míru důvěryhodnosti vašeho
-modelu (nikdo nechce výsledky z nedůvěryhodného modelu). Pokud nebudou
-uvedeny zdroje faktů o vašem systému, hrozí ztráta bodů.\\
-
-\begin{itemize}
-\tightlist
-\item
-  kapitola 2.1: Popis \textbf{použitých postupů} pro vytvoření modelu a
-  zdůvodnění, \textbf{proč jsou pro zadaný problém vhodné}. Zdůvodnění
-  může být podpořeno ukázáním alternativního přístupu a srovnáním s tím
-  vaším. Čtenář musí mít jistotu, že zvolené
-  nástroje/postupy/technologie jsou ideální pro řešení zadaného problému
-  (ovšem, ``dělám to v Javě, protože momentálně Java frčí\ldots{}''
-  nemusí zadavatele studie uspokojit).
-\item
-  kapitola 2.2: Popis \textbf{původu} použitých metod/technologií (odkud
-  byly získány (odkazy), zda-li jsou vytvořeny autorem) - převzaté části
-  dokumentovat (specificky, pokud k nim přísluší nějaké autorské
-  oprávnění/licence). Zdůvodnit potřebu vytvoření vlastních
-  metod/nástrojů/algoritmů. Ve většině případů budete přebírat již
-  navržené metody/algoritmy/definice/nástroje a je to pro školní projekt
-  typické. Stejně tak je typické, že \textbf{studenti chybně vymýšlí již
-  hotové věci a dojdou k naprostému nesmyslu} - je třeba toto nebezpečí
-  eleminovat v tomto zdůvodnění.
-\end{itemize}
-
-\textbf{Velmi důležité, až fanaticky povinné, kontrolované a hodnocené:
-na každém místě v textu, kde se poprvé objeví pojem z předmětu IMS bude
-v závorce uveden odkaz na předmět a číslo slajdu, na kterém je pojem
-definován}. Pokud bude významný pojem z předmětu IMS takto
-nedokumentován v textu a zjevně bude používán nevhodným nebo nepřesným
-způsobem, bude tento fakt hodnocen bodovou ztrátou. Tento požadavek je
-míněn s naprostou vážností. Cílem je vyhnout se studentské tvůrčí
-činnosti ve vysvětlování známých pojmů, což mnohdy vede k naprostým
-bludům, ztrátě bodů a zápočtů. Pokud student pojem cituje korektně a
-přesto nekorektně používá, bude to hodnoceno dvojnásobnou bodovou
-ztrátou.\\[2\baselineskip]
-
-\subsubsection{3. Koncepce - modelářská
-témata}\label{koncepce---modeluxe1ux159skuxe1-tuxe9mata}
-
-Konceptuální model je abstrakce reality a redukce reality na soubor
-relevantních faktů pro sestavení simulačního modelu. Předpokládáme, že
-model bude obsahovat fakta z ``Rozboru tématu''. Pokud jsou některá
-vyřazena nebo modifikována, je nuto to zde zdůvodnit (například:
-zkoumaný subjekt vykazuje v jednom procentu případů toto chování, ovšem
-pro potřeby modelu je to naprosto marginální a smíme to zanedbat, neboť
-\ldots{}). \textbf{Pokud některé partie reality zanedbáváte nebo
-zjednodušujete, musí to být zdůvodněno a v ideálním případě musí být
-prokázáno, že to neovlivní validitu modelu.} Cílem konceptuálního
-(abstraktního) modelu je formalizovat relevantní fakta o modelovaném
-systému a jejich vazby. Podle koncept. modelu by měl být každý schopen
-sestavit simulační model.\\
-
-\begin{itemize}
-\tightlist
-\item
-  kapitola 3.1: Způsob vyjádření konceptuálního modelu musí být
-  zdůvodněn (na obrázku xxx je uvedeno schéma systému, v rovnicích xx-yy
-  jsou popsány vazby mezi \ldots{}, způsob synchronizace procesů je na
-  obrázku xxx s Petriho sítí).
-\item
-  kapitola 3.2: Formy konceptuálního modelu (důraz je kladen na
-  srozumitelnost sdělení). Podle potřeby uveďte konkrétní relevantní:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    obrázek/náčrt/schéma/mapa (možno čitelně rukou)
-  \item
-    matematické rovnice - u některých témat (např. se spojitými prvky,
-    optimalizace, \ldots{}) naprosto nezbytné. \textbf{Dobré je chápat,
-    že veličiny (fyzikální, technické, ekonomické) mají jednotky, bez
-    kterých údaj nedává smysl.}
-  \item
-    stavový diagram (konečný automat) nebo Petriho síť - spíše na
-    abstraktní úrovni. Petriho síť nemá zobrazovat výpočty a přílišné
-    detaily. Pokud se pohodlně nevejde na obrazovku, je nepoužitelná.
-    Možno rozdělit na bloky se zajímavými detaily a prezentovat odděleně
-    abstraktní celek a podrobně specifikované bloky (hierarchický
-    přístup).
-  \end{itemize}
-\end{itemize}
-
-\subsubsection{3. Koncepce - implementační
-témata}\label{koncepce---implementaux10dnuxed-tuxe9mata}
-
-Popište abstraktně architekturu vašeho programu, princip jeho činnosti,
-významné datové struktury a podobně. Smyslem této kapitoly je podat
-informaci o programu bez použití názvů tříd, funkcí a podobně. Tuto
-kapitolu by měl pochopit každý technik i bez informatického vzdělání.
-Vyjadřovacími prostředky jsou vývojové diagramy, schémata, vzorce,
-algoritmy v pseudokódu a podobně. Musí zde být vysvětlena nosná myšlenka
-vašeho přístupu.\\[3\baselineskip]
-
-\subsubsection{4. Architektura simulačního
-modelu/simulátoru}\label{architektura-simulaux10dnuxedho-modelusimuluxe1toru}
-
-Tato kapitola má různou důležitost pro různé typy zadání. U
-implementačních témat lze tady očekávat jádro dokumentace. Zde můžete
-využít zajímavého prvku ve vašem simulačním modelu a tady ho
-``prodat''.\\
-
-\begin{itemize}
-\tightlist
-\item
-  kapitola 4.1: Minimálně je nutno ukázat mapování abstraktního
-  (koncept.) modelu do simulačního (resp. simulátoru). Např. které třídy
-  odpovídají kterým procesům/veličinám a podobně.
-\end{itemize}
-
-\subsubsection{5. Podstata simulačních experimentů a jejich
-průběh}\label{podstata-simulaux10dnuxedch-experimentux16f-a-jejich-prux16fbux11bh}
-
-\textbf{Nezaměňujte pojmy testování a experimentování (důvod pro bodovou
-ztrátu)!!!}\\
-Zopakovat/shrnout \textbf{co přesně chcete zjistit experimentováním} a
-proč k tomu potřebujete model. \textbf{Pokud experimentování nemá cíl,
-je celý projekt špatně.} Je celkem přípustné u experimentu odhalit chybu
-v modelu, kterou na základě experimentu opravíte. Pokud se v některém
-experimentu nechová model podle očekávání, je nutné tento experiment
-důkladně prověřit a chování modelu zdůvodnit (je to součást simulačnické
-profese). Pokud model pro některé vstupy nemá důvěryhodné výsledky, je
-nutné to zdokumentovat. Pochopitelně model musí mít důvěryhodné výsledky
-pro většinu myslitelných vstupů.\\
-
-\begin{itemize}
-\tightlist
-\item
-  kapitola 5.1: Naznačit postup experimentování -- jakým způsobem
-  hodláte prostřednictvím experimentů dojít ke svému cíli (v některých
-  situacích je přípustné ``to zkoušet tak dlouho až to vyjde'', ale i ty
-  musí mít nějaký organizovaný postup).
-\item
-  kapitola 5.2: Dokumentace jednotlivých experimentů - souhrn vstupních
-  podmínek a podmínek běhu simulace, komentovaný výpis výsledků, závěr
-  experimentu a plán pro další experiment (např. v experimentu 341. jsem
-  nastavil vstup x na hodnotu X, která je typická pro \ldots{} a vstup y
-  na Y, protože chci zjistit chování systému v prostředi \ldots{} Po
-  skončení běhu simulace byly získány tyto výsledky \ldots{}, kde je
-  nejzajímavější hodnota sledovaných veličin a,b,c které se chovaly
-  podle předpokladu a veličin d,e,f které ne. Lze z toho usoudit, že v
-  modelu není správně implementováno chování v podmínkách \ldots{} a
-  proto v následujících experimentech budu vycházet z modifikovaného
-  modelu verze \ldots{} Nebo výsledky ukazují, že systém v těchto
-  podmínkách vykazuje značnou citlivost na parametr x \ldots{} a proto
-  bude dobré v dalších experimentech přesně prověřit chování systému na
-  parametr x v intervalu hodnot \ldots{} až \ldots{})
-\item
-  kapitola 5.3: Závěry experimentů -- bylo provedeno N experimentů v
-  těchto situacích \ldots{} V průběhu experimentování byla odstraněna
-  \ldots{} chyba v modelu. Z experimentů lze odvodit chování systémů s
-  dostatečnou věrohodností a experimentální prověřování těchto \ldots{}
-  situací již napřinese další výsledky, neboť \ldots{}
-\end{itemize}
-
-\subsubsection{6. Shrnutí simulačních experimentů a
-závěr}\label{shrnutuxed-simulaux10dnuxedch-experimentux16f-a-zuxe1vux11br}
-
-Závěrem dokumentace se rozumí \textbf{zhodnocení simulační studie a
-zhodnocení experimentů} (např. Z výsledků experimentů vyplývá, že
-\ldots{} při předpokladu, že \ldots{} Validita modelu byla ověřena
-\ldots{} V rámci projektu vznikl nástroj \ldots{}, který vychází z
-\ldots{} a byl implementován v \ldots{}).\\
-
-\begin{itemize}
-\tightlist
-\item
-  do závěru se nehodí psát poznámky osobního charakteru (např. práce na
-  projektu mě bavila/nebavila, \ldots{}). \textbf{Technická zpráva není
-  osobní příběh autora.}
-\item
-  absolutně nikoho nezajímá, kolik úsilí jste projektu věnovali,
-  důležitá je pouze kvalita zpracování simulátoru/modelu a obsažnost
-  simulační studie (rozhodně ne např.: projekt jsem dělal \ldots{}
-  hodin, což je víc než zadání předpokládalo. Program má \ldots{} řádků
-  kódu). \textbf{Pokud zdůrazňujete, že jste práci dělali významně déle
-  než se čekalo, pak tím pouze demonstrujete vlastní neschopnost (to
-  platí zejména v profesním životě).}
-\item
-  do závěru se velmi nehodí psát ``auto-zhodnocení'' kvality práce, to
-  je výhradně na recenzentovi/hodnotiteli (např. v projektu jsem zcela
-  splnil zadání a domnívám se, že můj model je bezchybný a výsledky
-  taktéž). Statisticky častý je pravý opak autorova auto-zhodnocení.
-  Pokud přesto chcete vyzdvihnout kvalitu svého díla (což je dobře), tak
-  vaše výroky musí být naprosto nepopiratelně zdůvodněny a prokázány
-  (např. pomocí jiného referenčního přístupu, matematického důkazu,
-  analýzy, \ldots{}).
-\end{itemize}
-
-\subsubsection{Obecné poznámky}\label{obecnuxe9-poznuxe1mky}
-
-\begin{itemize}
-\tightlist
-\item
-  v dokumentaci neocením ``úvodní stránku s logem fakulty'' a obsah.
-  Obvzláště obsah jako jedna stránka u čtyř-pěti stránkového dokumentu
-  působí směšně. Tyto dvě strany pochopitelně smíte zprávě předřadit,
-  nepočítám je ovšem do počtu stran zprávy.
-\item
-  grafy mají své náležitosti - identifikační název grafu (případně jeho
-  číslo), cejchované osy s názvem veličiny na dané ose (včetně její
-  jednotky). V případě grafu kombinujícího více jevů i legenda
-  dokumentující grafické vyjádření jevů v grafu.
-\item
-  \textbf{veškeré tabulky a grafy musí být komentovány v textu - čtenáři
-  musí řečeno, co v tom grafu uvidí a čeho si má všimnout.}
-\end{itemize}
-
+    \section{Shrnutí simulačních experimentů a závěr}
 
 
 
@@ -422,8 +132,11 @@ zhodnocení experimentů} (např. Z výsledků experimentů vyplývá, že
 
     \addcontentsline{toc}{section}{Reference}
     \begin{thebibliography}{zdroje}
-        \bibitem{slajdy} \label{ims} PERINGER P. Slajdy k přednáškám do předmětu Modelování a simulace, 2017. Verze 15. září 2017 [cit. 2018-12-05]
-        \bibitem{slajdy} \label{kniha} KOVAŘÍK, František. Hmyz: chov, morfologie. Jihlava: Madagaskar, 2000. ISBN 80-86068-24-2.
+        \bibitem{1} \label{ims} PERINGER P. Slajdy k přednáškám do předmětu Modelování a simulace, 2017. Verze 15. září 2017 [cit. 2018-12-05]
+        \bibitem{2} \label{kniha} KOVAŘÍK, František. Hmyz: chov, morfologie. Jihlava: Madagaskar, 2000. ISBN 80-86068-24-2.
+        \bibitem{3} \label{simlib} PERINGER P. Simulační knihovna SIMLIB pro C++, dostupné na https://www.fit.vutbr.cz/~peringer/SIMLIB/
+        \bibitem{4} \label{prvnidemo} HRUBÝ M. Slajdy k I. democvičení, 2011 [cit. 2018-12-05]
+        \bibitem{5} \label{druhedemo} HRUBÝ M. Slajdy k II. democvičení, 2011 [cit. 2018-12-05]
     \end{thebibliography}
 
 
