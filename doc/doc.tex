@@ -88,7 +88,7 @@ aboveskip=0pt,
 
     \subsection{Zdroje informací}
     Autoři projektu jsou Josef Kolář a Iva Kavánková. Při tvorbě došlo k čeprání znalostí z přednášek předmětu Modelování a simulace, z odborné literatury
-    [\ref{kniha}] a taktéž od inženýrky Olgy Kavánkové, která je středoškolskou pedagožkou s aprobací na biologii
+    [\ref{kniha}], napsání dotazů na odborné internetové fórum (viz [\ref{forum}]) a taktéž od inženýrky Olgy Kavánkové, která je středoškolskou pedagožkou s aprobací na biologii
     a matematiku, čímž ji patří velké poděkování. Díky jejím odborným znalostem byl vytvořen odpovídající abstraktní model
     (viz [\ref{ims}], slajd č. 9).
 
@@ -97,7 +97,34 @@ aboveskip=0pt,
 
     \section{Rozbor tématu a použitých metod/technologií}
     Pro modelování a simulaci hmyzí farmy je nutné znát její reálný chod. \\
-    Životní cyklus cvrčka začíná jeho vylíhnutím, poté následuje
+    Životní cyklus cvrčka začíná jeho vylíhnutím, poté následuje doba dospívání,po které je jich schopen reprodukce a zároveň
+    je také vhodný na prodej pro potravinářské účely. Samice po oplodnění samcem je schopna klást vajíčka, ze kterých vzniká
+    nová populace. Nicméně, ne ze všech vajíček se narodí živí jedinci. Je také nutné brát v úvahu úbytek samců po soubojích, které provádí mezi sebou. Různě staré cvrčky je nutno chovat v generačních nádobách,
+    neboť jinak dochází k velké míře kanibalismu. \\
+    Shrnutí použitých číselných údajů znázorňuje následující tabulka.
+
+    \begin{table}[h]
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Popis}                                         & \textbf{Hodnota}      & \textbf{Zdroj}                                       \\ \hline
+        Doba za kterou cvrček dospěje (od narození)            & 4 týdny               & Ing. Olga Kavánková                                  \\ \hline
+        Doba za kterou je cvrček vhodný k prodeji              & 4 týdny               & Převazato z {[}\textbackslash{}ref\{kniha\}{]}       \\ \hline
+        Počet nakladených vajec od jedné samice denně          & 10                    & Převazato z {[}\textbackslash{}ref\{kniha\}{]}       \\ \hline
+        Procentuální úspěšnost vylíhnutí z vajíčka             & 90 \%                 & Ing. Olga Kavánková                                  \\ \hline
+        Doba za kterou se cvrček vylíhne z nakladeného vajíčka & 2 týdny               & Převazato z {[}\textbackslash{}ref\{kniha\}{]}       \\ \hline
+        Celková doba života cvrčka                             & 12 týdnů              & Ing. Olga Kavánková                                  \\ \hline
+        Počet jedinců v 1 litru                                & 600 ks                & Převazato z {[}\textbackslash{}ref\{forum\}{]}       \\ \hline
+        Cena 1 litru cvrčků                                    & 300 Kč                & Průměrná hodnota z {[}\textbackslash{}ref\{cena\}{]} \\ \hline
+        Úbytek samců po soubojích (denně)                      & 5 \%                  & Ing. Olga Kavánková                                  \\ \hline
+        Hmotnost jídla, co sní crvček starý 0 - 4 týdny        & 0,016 g               & Převazato z {[}\textbackslash{}ref\{jidlo\}{]}       \\ \hline
+        Hmotnost jídla, co sní cvrček starší 4 týdnů           & 0,034 g               & Převazato z \textbackslash{}ref\{jidlo\}             \\ \hline
+        \multicolumn{1}{|l|}{}                                 & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{}                                \\ \hline
+        \multicolumn{1}{|l|}{}                                 & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{}                                \\ \hline
+        \multicolumn{1}{|l|}{}                                 & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{}                                \\ \hline
+        \end{tabular}
+    \end{table}
+
+
 
     \subsection{Použité postupy}
     Program byl implementován v jazyce C++ s pomocí simulační knihovny SIMLIB (viz [\ref{simlib}]). To usnadňuje objektový návrh
@@ -141,6 +168,9 @@ aboveskip=0pt,
         \bibitem{3} \label{simlib} PERINGER P. Simulační knihovna SIMLIB pro C++, dostupné na https://www.fit.vutbr.cz/~peringer/SIMLIB/
         \bibitem{4} \label{prvnidemo} HRUBÝ M. Slajdy k I. democvičení, 2011 [cit. 2018-12-05]
         \bibitem{5} \label{druhedemo} HRUBÝ M. Slajdy k II. democvičení, 2011 [cit. 2018-12-05]
+        \bibitem{6} \label{jidlo} [Online] http://www.openbugfarm.com/forum.html?fbclid=IwAR3tl0-KFHtvkUVEI5XdTn54CVVGcY5vnApXX0xmOnOQ5B78kurOgmtlcwo#/discussion/1111/how-much-do-crickets-eat [cit. 2018-12-05]
+        \bibitem{7} \label{forum} [Online] https://www.ifauna.cz/terarijni-zvirata/diskuse/detail/3524112/chov-cvrcku-v-cislech#a3524888 [cit. 2018-12-05]
+        \bibitem{7} \label{cena} [Online] https://www.broukarna.cz/cvrcci/cvrcek-bananovy-2-2/ [cit. 2018-12-05]
     \end{thebibliography}
 
 
