@@ -7,31 +7,35 @@
 #include "stats.h"
 #include <iostream>
 
-extern Stat stats;
-extern int live_crickets;
-extern Histogram generation_hist;
-extern Histogram egg_hist;
 
 void Cricket::Behavior() {
-    // std::cout << "Spawned! " << Time << std::endl;
-
     auto birth = Time;
     live_crickets++;
 
-    auto adolescence_time = Normal(4 * 7, 4);// rust, 4 tydny +- 4 dny
+    auto adolescence_time = Normal(4 * 7, 4); // rust, 4 tydny +- 4 dny
     Wait(adolescence_time);
+
+    if (generation > 0 && Random() > .073) {
+        sold_crickets(1);
+        this->Terminate();
+    }
 
     auto female = Random() > .5;
     int eggs = 0;
     int days = static_cast<int>(Normal(30, 2));
     for (int i = 0; i < days; ++i) {
-        // this->Passivate();
         if (female) {
+            // samicky rodi
             int children = static_cast<int>(Normal(10, .5));
             eggs += children;
             for (int j = 0; j < children; ++j) {
                 if (generation < MAX_GENERATION)
                     (new HatchEvent(generation + 1))->Activate();
+            }
+        } else {
+            // samci se zabijeji
+            if (Random() > .95) {
+                this->Terminate();
             }
         }
 

@@ -13,4 +13,8 @@ extern int live_crickets;
 
 extern Histogram generation_hist;
 
+extern Histogram egg_hist;
+
+extern TStat sold_crickets;
+
 #endif //VUT_FIT_IMS_STATS_H

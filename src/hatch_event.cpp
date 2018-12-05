@@ -14,6 +14,7 @@ void HatchEvent::Behavior() {
         // dva tydny, ropztyl 2 dny
         auto v = max(Normal(14, 2), 0.);
 
+
         (new Cricket(generation))->Activate(Time + v);
     }
 

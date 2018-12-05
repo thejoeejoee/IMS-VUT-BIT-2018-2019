@@ -5,7 +5,7 @@
 #ifndef VUT_FIT_IMS_CRICKET_H
 #define VUT_FIT_IMS_CRICKET_H
 
-static const int MAX_GENERATION = 4;
+static const int MAX_GENERATION = 400;
 
 #include "../lib/simlib/src/simlib.h"
 

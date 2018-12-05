@@ -32,25 +32,25 @@
 \definecolor{codeprimary}{HTML}{3300CC}
 \colorlet{keywordstyle}{codeprimary!50!black}
 \lstset{
-    language=C++,
-    frameround=fftf,
-    breaklines=true,
-    keywordstyle=\color{keywordstyle}\ttfamily,
-    basicstyle=\color{codeprimary},
-    numberstyle=\color{black},
-    backgroundcolor=\color{white},
-    frame=single,
-    tabsize=4,
-    breaklines=true,
-    captionpos=t,
-    xleftmargin=\dimexpr\fboxsep+1pt\relax,
-    xrightmargin=\fboxsep,
-    numbers=none,
-    showstringspaces=false,
-    escapeinside={\#!}{\^^M},
-    belowcaptionskip=0pt,
-    belowskip=0pt,
-    aboveskip=0pt,
+language=C++,
+frameround=fftf,
+breaklines=true,
+keywordstyle=\color{keywordstyle}\ttfamily,
+basicstyle=\color{codeprimary},
+numberstyle=\color{black},
+backgroundcolor=\color{white},
+frame=single,
+tabsize=4,
+breaklines=true,
+captionpos=t,
+xleftmargin=\dimexpr\fboxsep+1pt\relax,
+xrightmargin=\fboxsep,
+numbers=none,
+showstringspaces=false,
+escapeinside={\#!}{\^^M},
+belowcaptionskip=0pt,
+belowskip=0pt,
+aboveskip=0pt,
 }
 
 \makeatletter
@@ -88,7 +88,7 @@
 
     \subsection{Zdroje informací}
     Autoři projektu jsou Josef Kolář a Iva Kavánková. Při tvorbě došlo k čeprání znalostí z přednášek předmětu Modelování a simulace, z odborné literatury
-    [\ref{kniha}] a obzvlášť od paní inženýrky Olgy Kavánkové, která je středoškolskou pedagožkou s aprobací na biologii
+    [\ref{kniha}] a taktéž od inženýrky Olgy Kavánkové, která je středoškolskou pedagožkou s aprobací na biologii
     a matematiku, čímž ji patří velké poděkování. Díky jejím odborným znalostem byl vytvořen odpovídající abstraktní model
     (viz [\ref{ims}], slajd č. 9).
 
@@ -99,9 +99,9 @@
     Pro modelování a simulaci hmyzí farmy je nutné znát její reálný chod. \\
     Životní cyklus cvrčka začíná jeho vylíhnutím, poté následuje
 
-     \subsection{Použité postupy}
+    \subsection{Použité postupy}
     Program byl implementován v jazyce C++ s pomocí simulační knihovny SIMLIB (viz [\ref{simlib}]). To usnadňuje objektový návrh
-    a třídy vhodné por simulaci konkrétního zadání. Použité algoritmy byly použity ze slajdů k předmětu IMS (viz [\ref{ims}]), slajdy
+    a třídy vhodné pro simulaci konkrétního zadání. Použité algoritmy byly použity ze slajdů k předmětu IMS (viz [\ref{ims}]), slajdy
     z prvního (viz [\ref{prvnidemo}]) a druhého (viz [\ref{druhedemo}]) demonstračního cvičení z tohoto předmětu.
 
     \\
@@ -113,6 +113,10 @@
     \subsection{Formy konceptuálního modelu}
 
     \section{Architektura simulačního modelu}
+
+    Jádro simulační modelu leží ve třídách \ic|Cricket| a \ic|HatchEvent|. V případě první se jedná o proces modelující
+    životní cyklus jednoho cvrčka, jakožto jedince. Druhá třída poté simuluje pomocí události nakladené vajíčko cvrčka -
+    její naplánování do kalendáře zajištují samičky.
 
     \subsection{Rozbor implementace}
 
