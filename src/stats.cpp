@@ -4,4 +4,9 @@
 
 #include "stats.h"
 
-Stat stats;
+Stat stats("Life length");
+
+Histogram generation_hist("Generation histogram", 0, 1, 10);
+Histogram egg_hist("Eggs count histogram", 100, 20, 20);
+
+int live_crickets = 0;

@@ -82,4 +82,6 @@ set(SIMLIB_HEADERS
     lib/simlib/src/optimize.h
         src/cricket.cpp src/cricket.h src/stats.cpp src/stats.h)
 
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -O2)
+
 add_executable(VUT_FIT_IMS main.cpp ${BASEFILES} ${CONTIFILES} ${DISCFILES} ${OPTFILES} ${HEADERS} ${SIMLIB_HEADERS} src/hatch_event.cpp src/hatch_event.h)

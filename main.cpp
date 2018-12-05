@@ -6,6 +6,10 @@
 
 using namespace std;
 extern Stat stats;
+extern int live_crickets;
+
+extern Histogram generation_hist;
+extern Histogram egg_hist;
 
 
 class CricketSpawn : public Event {
@@ -20,11 +24,16 @@ class CricketSpawn : public Event {
 
 int main() {
 
-    Init(0, 6 * 28);
+    SetCalendar("cq");
+    Init(0, 11 * 28);
     (new CricketSpawn)->Activate();
+
     Run();
 
     stats.Output();
+    generation_hist.Output();
+    egg_hist.Output();
+    cout << "Live crickets: " << live_crickets << endl;
 
 
     return 0;

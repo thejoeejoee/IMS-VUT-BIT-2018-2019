@@ -9,4 +9,8 @@
 
 extern Stat stats;
 
+extern int live_crickets;
+
+extern Histogram generation_hist;
+
 #endif //VUT_FIT_IMS_STATS_H
