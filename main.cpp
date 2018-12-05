@@ -5,12 +5,6 @@
 #include <iostream>
 
 using namespace std;
-extern Stat stats;
-extern TStat sold_crickets;
-extern int live_crickets;
-
-extern Histogram generation_hist;
-extern Histogram egg_hist;
 
 
 class CricketSpawn : public Event {
@@ -32,13 +26,12 @@ int main() {
 
     Run();
 
-    stats.Output();
+    life_length_stats.Output();
     generation_hist.Output();
     // egg_hist.Output();
-    sold_crickets.Output();
-    cout << "Live crickets: " << live_crickets << endl;
-    cout << "Sold liters: " << sold_crickets.Number() / 600. << " ("
-         << static_cast<int>(300 * (sold_crickets.Number() / 600.)) << " Kč)" << endl;
+    sold_crickets_stats.Output();
+    cout << "Sold liters: " << sold_crickets_stats.Number() / 600. << " (appr. "
+         << static_cast<int>(300 * (sold_crickets_stats.Number() / 600.)) << " Kč)" << endl;
 
 
     return 0;

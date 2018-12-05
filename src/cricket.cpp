@@ -10,15 +10,17 @@
 
 void Cricket::Behavior() {
     auto birth = Time;
-    live_crickets++;
 
     auto adolescence_time = Normal(4 * 7, 4); // rust, 4 tydny +- 4 dny
     Wait(adolescence_time);
 
+    generation_hist(generation);
     if (generation > 0 && Random() > .073) {
-        sold_crickets(1);
+        life_length_stats(Time - birth);
+        sold_crickets_stats(1);
         this->Terminate();
     }
+
 
     auto female = Random() > .5;
     int eggs = 0;
@@ -48,9 +50,8 @@ void Cricket::Behavior() {
         Wait(life_length - (adolescence_time + days));
     }
 
-    live_crickets--;
-    stats(Time - birth);
-    generation_hist(generation);
+    sold_crickets_stats(1);
+    life_length_stats(Time - birth);
 
     // std::cout << "Killed " << ++c << " in generation " << generation << '.' << std::endl;
 }

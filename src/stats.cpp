@@ -4,10 +4,9 @@
 
 #include "stats.h"
 
-Stat stats("Life length");
-TStat sold_crickets("Sold crickets");
 
-Histogram generation_hist("Generation histogram", 0, 1, 20);
-Histogram egg_hist("Eggs count histogram", 100, 20, 20);
+Stat sold_crickets_stats("Sold crickets (directly sold)");
 
-int live_crickets = 0;
+Histogram life_length_stats("Life length", 10, 10, 10);
+Histogram generation_hist("Generation histogram", 0, 1, 10);
+Histogram egg_hist("Eggs count histogram (for females)", 100, 20, 20);
