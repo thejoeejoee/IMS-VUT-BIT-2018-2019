@@ -1,4 +1,3 @@
-\documentclass{article}
 \documentclass[11pt, a4paper, titlepage]{article}
 
 % Set document dimensions
@@ -99,26 +98,26 @@ aboveskip=0pt,
     Pro modelování a simulaci hmyzí farmy je nutné znát její reálný chod. \\
     Životní cyklus cvrčka začíná jeho vylíhnutím, poté následuje doba dospívání,po které je jich schopen reprodukce a zároveň
     je také vhodný na prodej pro potravinářské účely. Samice po oplodnění samcem je schopna klást vajíčka, ze kterých vzniká
-    nová populace. Nicméně, ne ze všech vajíček se narodí živí jedinci. Je také nutné brát v úvahu úbytek samců po soubojích, které provádí mezi sebou. Různě staré cvrčky je nutno chovat v generačních nádobách,
+    nová generace. Nicméně, ne ze všech vajíček se narodí živí jedinci. Je také nutné brát v úvahu úbytek samců po soubojích, které provádí mezi sebou. Různě staré cvrčky je nutno chovat v generačních nádobách,
     neboť jinak dochází k velké míře kanibalismu. Jedinci konzumují různé množství potravy podle svého věku.\\
-    Shrnutí použitých číselných údajů znázorňuje následující tabulka.
+    Shrnutí použitých číselných údajů pro model znázorňuje následující tabulka.
 
     \begin{table}[h]
         \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{Popis}                                         & \textbf{Hodnota}      & \textbf{Zdroj}                        \\ \hline
-        Doba za kterou cvrček dospěje (od narození)            & (No) 4 týdny          & Ing. Olga Kavánková                   \\ \hline
-        Doba za kterou je cvrček vhodný k prodeji              & (No) 4 týdny          & Převazato z [\ref{kniha}]             \\ \hline
-        Počet nakladených vajec od jedné samice denně          & (No) 10               & Převazato z [\ref{kniha}]             \\ \hline
-        Procentuální úspěšnost vylíhnutí z vajíčka             & 90 \%                 & Ing. Olga Kavánková                   \\ \hline
-        Doba za kterou se cvrček vylíhne z nakladeného vajíčka & (No) 2 týdny          & Převazato z [\ref{kniha}]             \\ \hline
-        Celková doba života cvrčka                             & (No) 12 týdnů         & Ing. Olga Kavánková                   \\ \hline
-        Počet jedinců v 1 litru                                & 600 ks                & Převazato z [\ref{forum}]             \\ \hline
-        Cena 1 litru cvrčků                                    & 300 Kč                & Průměrná hodnota z [\ref{cena}]       \\ \hline
-        Úbytek samců po soubojích (denně)                      & 5 \%                  & Ing. Olga Kavánková                   \\ \hline
-        Hmotnost jídla, co sní crvček starý 0 - 4 týdny        & (No) 0,016 g          & Převazato z [\ref{jidlo}]             \\ \hline
-        Hmotnost jídla, co sní cvrček starší 4 týdnů           & (No) 0,034 g          & Převazato z [\ref{jidlo}]             \\ \hline
-        Cena za 1 kg jídla                                     & 800 Kč                & Převazato z [\ref{forum}]             \\ \hline
+            \hline
+            \textbf{Popis}                                         & \textbf{Hodnota}      & \textbf{Zdroj}                        \\ \hline
+            Doba dospívání od vylíhnutí & (No) 4 týdny & Ing. Kavánková                   \\ \hline
+            Doba, za kterou je jedinec vhodný k prodeji & (No) 4 týdny & Převazato z [\ref{kniha}]             \\ \hline
+            Množství denně nakladených vajíček & (No) 10 & Převazato z [\ref{kniha}]             \\ \hline
+            Úspěšnost vylíhnutí jedince z vajíčka & 90 \%                 & Ing. Kavánková                   \\ \hline
+            Doba od nakladení k vylíhnutí & (No) 2 týdny & Převazato z [\ref{kniha}]             \\ \hline
+            Celková doba života jedince & (No) 12 týdnů & Ing. Kavánková                   \\ \hline
+            Počet jedinců v 1 litru & 600 ks & Převazato z [\ref{forum}]             \\ \hline
+            Cena 1 litru jedinců k prodeji & 300 Kč & Průměrná hodnota z [\ref{cena}]       \\ \hline
+            Denní úbytek samců po soubojích & 5 \%                  & Ing. Kavánková                   \\ \hline
+            Denní množství potravy pro jedince starého 0 - 4 týdny & (No) 0,016 g & Převazato z [\ref{jidlo}]             \\ \hline
+            Denní množství potravy pro jedince staršího 4 týdnů & (No) 0,034 g & Převazato z [\ref{jidlo}]             \\ \hline
+            Cena 1 kg potravy & 800 Kč & Převazato z [\ref{forum}]             \\ \hline
         \end{tabular}
     \end{table}
 
@@ -127,7 +126,7 @@ aboveskip=0pt,
     a třídy vhodné pro simulaci konkrétního zadání. Použité algoritmy byly použity ze slajdů k předmětu IMS (viz [\ref{ims}]), slajdy
     z prvního (viz [\ref{prvnidemo}]) a druhého (viz [\ref{druhedemo}]) demonstračního cvičení z tohoto předmětu.
 
-    \\
+
 
     \section{Koncepce modelu}
 
@@ -137,20 +136,33 @@ aboveskip=0pt,
 
     \section{Architektura simulačního modelu}
 
+    Simulační model využívá SIMLIB procesů reprezentujících jednotlivé jedince a jejich životní cyklus. Líhnutí vajíček
+    je poté událost po vzoru SIMLIB a zajištuje vytvoření další procesů. Pro možnou analýzu rozložení generací
+    jednotlivých jedinců v modelu je každému procesu přidělen atribut s pořadím generace. Pro agregaci těchto dat jsou
+    použity nástroje ze simulační knihovny.
+
+    \subsection{Rozbor implementace}
+
     Jádro simulační modelu leží ve třídách \ic|Cricket| a \ic|HatchEvent|. V případě první se jedná o proces modelující
     životní cyklus jednoho cvrčka, jakožto jedince. Druhá třída poté simuluje pomocí události nakladené vajíčko cvrčka -
     její naplánování do kalendáře zajištují samičky.
-
-    \subsection{Rozbor implementace}
 
     \section{Podstata simulačních experimentů a jejich průběh}
 
     Pomocí experimentů nad modelem cvrččí farmy bychom rádi zoptimalizovali nastavení několika parametrů při jejím provozu
     vzhledem k ekonomice tohoto podniku. Jedná se o následující parametry:
 
-    
+    \begin{itemize}
+        \item \textbf{Množství jedinců na počátku} - Množství přímo ovlivňuje další průběh provozu farmy, především rychlost
+        jejího \uv{nastartování}, tedy odchování dostatečného počtu jedinců k založení další generace a prodeji.
+
+        \item \textbf{Poměr jedinců k exportu} - Vzhledem k metodám chovu je nutno stanovit, jaké množství čerstvě vylíhnutých
+        jedinců je určeno k exportu a tím i jaké množství se následně množí a vytváří tak další generaci.
+    \end{itemize}
 
     \subsection{Postup experimentování}
+
+    Experimentování probíhalo pomocí úpravy těchto parametrů a přímou analýzou výsledků.
 
     \subsection{Dokumentace jednotlivých experimentů}
 
@@ -166,8 +178,8 @@ aboveskip=0pt,
         \bibitem{3} \label{simlib} PERINGER P. Simulační knihovna SIMLIB pro C++, dostupné na https://www.fit.vutbr.cz/~peringer/SIMLIB/
         \bibitem{4} \label{prvnidemo} HRUBÝ M. Slajdy k I. democvičení, 2011 [cit. 2018-12-05]
         \bibitem{5} \label{druhedemo} HRUBÝ M. Slajdy k II. democvičení, 2011 [cit. 2018-12-05]
-        \bibitem{6} \label{jidlo} [Online] http://www.openbugfarm.com/forum.html?fbclid=IwAR3tl0-KFHtvkUVEI5XdTn54CVVGcY5vnApXX0xmOnOQ5B78kurOgmtlcwo#/discussion/1111/how-much-do-crickets-eat [cit. 2018-12-05]
-        \bibitem{7} \label{forum} [Online] https://www.ifauna.cz/terarijni-zvirata/diskuse/detail/3524112/chov-cvrcku-v-cislech#a3524888 [cit. 2018-12-05]
+        \bibitem{6} \label{jidlo} [Online] http://www.openbugfarm.com/forum.html?fbclid=IwAR3tl0-KFHtvkUVEI5XdTn54CVVGcY5vnApXX0xmOnOQ5B78kurOgmtlcwo\#/discussion/1111/how-much-do-crickets-eat [cit. 2018-12-05]
+        \bibitem{7} \label{forum} [Online] https://www.ifauna.cz/terarijni-zvirata/diskuse/detail/3524112/chov-cvrcku-v-cislech\#a3524888 [cit. 2018-12-05]
         \bibitem{7} \label{cena} [Online] https://www.broukarna.cz/cvrcci/cvrcek-bananovy-2-2/ [cit. 2018-12-05]
     \end{thebibliography}
 

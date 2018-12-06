@@ -5,6 +5,7 @@
 #include "cricket.h"
 #include "hatch_event.h"
 #include "stats.h"
+#include "../lib/simlib/src/internal.h"
 #include <iostream>
 
 
@@ -13,6 +14,7 @@ void Cricket::Behavior() {
 
     auto adolescence_time = Normal(4 * 7, 4); // rust, 4 tydny +- 4 dny
     Wait(adolescence_time);
+    feed_amount_stats(16 * adolescence_time); // 16 mg per day
 
     generation_hist(generation);
     if (generation > 0 && Random() > .073) {
@@ -20,7 +22,6 @@ void Cricket::Behavior() {
         sold_crickets_stats(1);
         this->Terminate();
     }
-
 
     auto female = Random() > .5;
     int eggs = 0;
@@ -36,19 +37,27 @@ void Cricket::Behavior() {
             }
         } else {
             // samci se zabijeji
-            if (Random() > .95) {
+            if (Random() > 0) {
+                life_length_stats(Time - birth);
                 this->Terminate();
             }
         }
-
+        feed_amount_stats(34); // 34 mg per day
         this->Activate(Time + 1);
     }
     egg_hist(eggs);
 
-    auto life_length = Normal(3 * 28, 4);
-    if (life_length > (adolescence_time + days)) {
-        Wait(life_length - (adolescence_time + days));
+    /**
+    auto to_end_of_life = max(
+            Normal(3 * 28, 4) - (adolescence_time + days),
+            0.
+            );
+
+    if (to_end_of_life > 0.) {
+        Wait(to_end_of_life);
+        feed_amount_stats(34 * to_end_of_life);
     }
+     */
 
     sold_crickets_stats(1);
     life_length_stats(Time - birth);

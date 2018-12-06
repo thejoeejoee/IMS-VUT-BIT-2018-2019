@@ -15,4 +15,6 @@ extern Histogram egg_hist;
 
 extern Stat sold_crickets_stats;
 
+extern Stat feed_amount_stats;
+
 #endif //VUT_FIT_IMS_STATS_H
