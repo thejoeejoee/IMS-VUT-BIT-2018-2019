@@ -22,7 +22,7 @@ void Cricket::Behavior() {
     // first generation is not sold
     if (generation > 0 && Random() > YOUNG_CRICKET_KEEP_RATE) {
         life_length_stats(Time - birth);
-        sold_crickets_stats(1);
+        sold_adolescents_stats(1);
         this->Terminate();
     }
 
@@ -54,6 +54,6 @@ void Cricket::Behavior() {
         this->Activate(Time + 1);
     }
     egg_hist(eggs);
-    sold_crickets_stats(1);
+    sold_adults_stats(1);
     life_length_stats(Time - birth);
 }

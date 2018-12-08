@@ -13,7 +13,9 @@ extern Histogram generation_hist;
 
 extern Histogram egg_hist;
 
-extern Stat sold_crickets_stats;
+extern Stat sold_adults_stats;
+
+extern Stat sold_adolescents_stats;
 
 extern Stat feed_amount_stats;
 

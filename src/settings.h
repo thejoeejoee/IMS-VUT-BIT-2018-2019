@@ -41,13 +41,16 @@
 #define FEMALE_RATE .5 // half
 
 // count of crickets in initial generation (=0)
-#define INITIAL_GENERATION_COUNT 1 * 600 // one liter
+#define INITIAL_GENERATION_COUNT 10 * 600 // one liter
 
 // length of simulation
 #define SIMULATION_LENGTH 12 * 28 // 12 months
 
-// count of crickets in liter for sell
-#define CRICKETS_IN_LITER 600.
+// count of adult crickets in liter for sell
+#define ADULT_CRICKETS_IN_LITER 600.
+
+// count of adolescence crickets in liter for sell
+#define ADOLESCENCE_CRICKETS_IN_LITER 800.
 
 // price of cricket liter
 #define CRICKETS_LITER_PRICE 300

@@ -5,7 +5,8 @@
 #include "stats.h"
 
 
-Stat sold_crickets_stats("Sold crickets (directly sold)");
+Stat sold_adults_stats("Sold adult crickets (directly sold)");
+Stat sold_adolescents_stats("Sold adolescence crickets (directly sold)");
 Stat feed_amount_stats("Amount of feed (in mg)");
 
 Histogram life_length_stats("Life length", 10, 10, 10);

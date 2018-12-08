@@ -29,13 +29,18 @@ int main() {
     life_length_stats.Output();
     generation_hist.Output();
     // egg_hist.Output();
-    sold_crickets_stats.Output();
+    sold_adults_stats.Output();
+    sold_adolescents_stats.Output();
     feed_amount_stats.Output();
 
-    auto cricket_price = static_cast<int>(CRICKETS_LITER_PRICE * (sold_crickets_stats.Number() / CRICKETS_IN_LITER));
+    auto sold_liters = (sold_adults_stats.Number() / ADULT_CRICKETS_IN_LITER) +
+                       (sold_adolescents_stats.Number() / ADOLESCENCE_CRICKETS_IN_LITER);
+
+    auto cricket_price = static_cast<int>(sold_liters * CRICKETS_LITER_PRICE);
+
     auto feed_price = static_cast<int>(FEED_KG_PRICE * (feed_amount_stats.Sum() / 1'000'000.)); // mg -> kg
 
-    cout << "Sold liters: " << sold_crickets_stats.Number() / CRICKETS_IN_LITER << " (appr. "
+    cout << "Sold liters: " << sold_liters << " (appr. "
          << cricket_price << " Kč)" << endl;
     cout << "Feed amount: " << feed_amount_stats.Sum() / 1'000'000. << " (appr. "
          << feed_price << " Kč)" << endl;
