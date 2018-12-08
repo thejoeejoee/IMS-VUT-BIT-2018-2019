@@ -5,11 +5,9 @@
 #ifndef VUT_FIT_IMS_CRICKET_H
 #define VUT_FIT_IMS_CRICKET_H
 
-static const int MAX_GENERATION = 300;
 
 #include "../lib/simlib/src/simlib.h"
 
-static int count = 0;
 
 class Cricket : public Process {
         size_t generation;

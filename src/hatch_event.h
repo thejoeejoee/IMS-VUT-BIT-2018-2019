@@ -5,6 +5,7 @@
 #ifndef VUT_FIT_IMS_HATCH_EVENT_H
 #define VUT_FIT_IMS_HATCH_EVENT_H
 
+
 class HatchEvent : public Event {
         size_t generation;
         void Behavior() override;

@@ -80,7 +80,7 @@ set(SIMLIB_HEADERS
     lib/simlib/src/simlib2D.h
     lib/simlib/src/simlib3D.h
     lib/simlib/src/optimize.h
-        src/cricket.cpp src/cricket.h src/stats.cpp src/stats.h)
+        src/cricket.cpp src/cricket.h src/stats.cpp src/stats.h src/settings.h)
 
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -O2)
 

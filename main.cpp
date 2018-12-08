@@ -2,6 +2,7 @@
 #include "src/hatch_event.h"
 #include "src/cricket.h"
 #include "src/stats.h"
+#include "src/settings.h"
 #include <iostream>
 
 using namespace std;
@@ -9,7 +10,7 @@ using namespace std;
 
 class CricketSpawn : public Event {
         void Behavior() override {
-            for (int i = 0; i < 50 * 600; ++i) {
+            for (int i = 0; i < INITIAL_GENERATION_COUNT; ++i) {
                 (new Cricket)->Activate();
             }
 
@@ -18,10 +19,10 @@ class CricketSpawn : public Event {
 };
 
 int main() {
-    RandomSeed(time(nullptr));
+    // RandomSeed(time(nullptr));
 
     SetCalendar("cq");
-    Init(0, 12 * 28);
+    Init(0, SIMULATION_LENGTH);
     (new CricketSpawn)->Activate();
 
     Run();

@@ -6,61 +6,54 @@
 #include "hatch_event.h"
 #include "stats.h"
 #include "../lib/simlib/src/internal.h"
+#include "settings.h"
 #include <iostream>
 
 
 void Cricket::Behavior() {
+    generation_hist(generation); // sign into generation
     auto birth = Time;
+    auto adolescence_time = ADOLESCENCE_TOTAL_DURATION; // generate length of adolescence
 
-    auto adolescence_time = Normal(4 * 7, 4); // rust, 4 tydny +- 4 dny
-    Wait(adolescence_time);
-    feed_amount_stats(16 * adolescence_time); // 16 mg per day
+    // grow into young level of cricket
+    Wait(ADOLESCENCE_DURATION_BEFORE_SELL);
+    feed_amount_stats(FEED_AMOUNT_ADOLESCENCE * ADOLESCENCE_DURATION_BEFORE_SELL);
 
-    generation_hist(generation);
-    if (generation > 0 && Random() > .073) {
+    // first generation is not sold
+    if (generation > 0 && Random() > YOUNG_CRICKET_KEEP_RATE) {
         life_length_stats(Time - birth);
         sold_crickets_stats(1);
         this->Terminate();
     }
 
-    auto female = Random() > .5;
+
+    // grow into adult cricket
+    Wait(adolescence_time - ADOLESCENCE_DURATION_BEFORE_SELL);
+    feed_amount_stats(FEED_AMOUNT_ADOLESCENCE * (adolescence_time - ADOLESCENCE_DURATION_BEFORE_SELL));
+
+    auto female = Random() > FEMALE_RATE;
     int eggs = 0;
-    int days = static_cast<int>(Normal(30, 2));
+    int days = static_cast<int>(PRODUCTIVE_ADULT_DAYS);
     for (int i = 0; i < days; ++i) {
         if (female) {
-            // samicky rodi
-            int children = static_cast<int>(Normal(10, .5));
+            // spawn hatches
+            int children = static_cast<int>(HATCHES_PER_ACTIVE_DAY);
             eggs += children;
             for (int j = 0; j < children; ++j) {
-                if (generation < MAX_GENERATION)
-                    (new HatchEvent(generation + 1))->Activate();
+                (new HatchEvent(generation + 1))->Activate();
             }
         } else {
-            // samci se zabijeji
-            if (Random() > 0) {
+            // fight with other males
+            if (Random() > MALE_KILL_PROBABILITY) {
                 life_length_stats(Time - birth);
                 this->Terminate();
             }
         }
-        feed_amount_stats(34); // 34 mg per day
+        // feed for day
+        feed_amount_stats(FEED_AMOUNT_ADULT);
         this->Activate(Time + 1);
     }
     egg_hist(eggs);
-
-    /**
-    auto to_end_of_life = max(
-            Normal(3 * 28, 4) - (adolescence_time + days),
-            0.
-            );
-
-    if (to_end_of_life > 0.) {
-        Wait(to_end_of_life);
-        feed_amount_stats(34 * to_end_of_life);
-    }
-     */
-
     sold_crickets_stats(1);
     life_length_stats(Time - birth);
-
-    // std::cout << "Killed " << ++c << " in generation " << generation << '.' << std::endl;
 }
