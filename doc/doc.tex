@@ -18,10 +18,12 @@
 \usepackage{multicol}
 \usepackage{newverbs}
 \usepackage{lipsum}
+\usepackage{svg}
 
 %\usepackage{fancyhdr}
 
 \usepackage{fancyhdr}
+\usepackage{graphicx}
 
 
 \lstnewenvironment{code}[1][]%
@@ -103,12 +105,15 @@ aboveskip=0pt,
     Po týdnu kladení vajec samicemi, dojde k oddělení nakladených sít s vejcemi a vzniku nové generační nádoby (u chovu je to nutnost, neboť jinak dochází
     k obrovské míře kanibalismu). Zde nakladená vejce se po čase vylíhnou a cyklus pokračuje dál. Jelikož je samička plodná pouze určitou dobu,
     je poté prodána. Prodáni jsou také zbylí samci, neboť již dále by nepřinášeli žádný další zisk. Jelikože dospělí cvrčci jsou větší,
-    vejde se jich do litru na prodej méně, než mladších cvrčků. Jedinci pochopitelně konzumují různé množství potravy podle svého věku. \\
+    vejde se jich do litru na prodej méně, než mladších cvrčků. Jedinci pochopitelně konzumují různé množství potravy podle svého věku. Crvčci potřebují k
+    životu teplotu 28°C až 30°C\\
     \\
     Shrnutí použitých číselných údajů pro model znázorňuje následující tabulka.
 
     \begin{table}[h]
+        \caption[Data]{Tabulka číselných údajů}
         \begin{tabular}{|c|c|c|}
+
             \hline
             \textbf{Popis}                                         & \textbf{Hodnota}      & \textbf{Zdroj}                        \\ \hline
             Doba dospívání od vylíhnutí & (No) 4 týdny & Ing. Kavánková                   \\ \hline
@@ -124,6 +129,7 @@ aboveskip=0pt,
             Denní množství potravy pro jedince starého 0 - 4 týdny & (No) 0,016 g & Převazato z [\ref{jidlo}]             \\ \hline
             Denní množství potravy pro jedince staršího 4 týdnů & (No) 0,034 g & Převazato z [\ref{jidlo}]             \\ \hline
             Cena 1 kg potravy & 800 Kč & Převazato z [\ref{forum}]             \\ \hline
+            % TODO: doplnit topeni TOPENI & xx & yyy            \\ \hline
         \end{tabular}
     \end{table}
 
@@ -137,6 +143,11 @@ aboveskip=0pt,
     \section{Koncepce modelu}
 
     \subsection{Návrh konceptuálního modelu}
+
+    \begin{center}
+        \includegraphics[scale=0.7]{./assets/abstraktni_model.pdf}
+        \caption{Abstraktní schéma}
+    \end{center}
 
     \subsection{Formy konceptuálního modelu}
 
