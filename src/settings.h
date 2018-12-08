@@ -46,5 +46,14 @@
 // length of simulation
 #define SIMULATION_LENGTH 12 * 28 // 12 months
 
+// count of crickets in liter for sell
+#define CRICKETS_IN_LITER 600.
+
+// price of cricket liter
+#define CRICKETS_LITER_PRICE 300
+
+// price of kilogram of feed
+#define FEED_KG_PRICE 800
+
 
 #endif //VUT_FIT_IMS_SETTINGS_H

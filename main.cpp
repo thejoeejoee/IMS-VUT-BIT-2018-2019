@@ -8,7 +8,7 @@
 using namespace std;
 
 
-class CricketSpawn : public Event {
+class InitialGenerationSpawn : public Event {
         void Behavior() override {
             for (int i = 0; i < INITIAL_GENERATION_COUNT; ++i) {
                 (new Cricket)->Activate();
@@ -23,8 +23,7 @@ int main() {
 
     SetCalendar("cq");
     Init(0, SIMULATION_LENGTH);
-    (new CricketSpawn)->Activate();
-
+    (new InitialGenerationSpawn)->Activate();
     Run();
 
     life_length_stats.Output();
@@ -33,10 +32,10 @@ int main() {
     sold_crickets_stats.Output();
     feed_amount_stats.Output();
 
-    auto cricket_price = static_cast<int>(300 * (sold_crickets_stats.Number() / 600.));
-    auto feed_price = static_cast<int>(800 * (feed_amount_stats.Sum() / 1'000'000.));
+    auto cricket_price = static_cast<int>(CRICKETS_LITER_PRICE * (sold_crickets_stats.Number() / CRICKETS_IN_LITER));
+    auto feed_price = static_cast<int>(FEED_KG_PRICE * (feed_amount_stats.Sum() / 1'000'000.)); // mg -> kg
 
-    cout << "Sold liters: " << sold_crickets_stats.Number() / 600. << " (appr. "
+    cout << "Sold liters: " << sold_crickets_stats.Number() / CRICKETS_IN_LITER << " (appr. "
          << cricket_price << " Kč)" << endl;
     cout << "Feed amount: " << feed_amount_stats.Sum() / 1'000'000. << " (appr. "
          << feed_price << " Kč)" << endl;
