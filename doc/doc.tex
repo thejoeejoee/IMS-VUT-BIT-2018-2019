@@ -28,6 +28,7 @@
 \usepackage{lipsum}
 \usepackage{svg}
 \usepackage{gensymb}
+\usepackage{caption}
 
 %\usepackage{fancyhdr}
 
@@ -212,23 +213,51 @@ aboveskip=0pt,
     \subsection{Dokumentace jednotlivých experimentů}
 
     \subsubsection{Poměr jedinců k exportu}
-    Pro velký poměr prodaných jedinců lze pozorovat postupné vyhynutí farmy (99 \% prodaných jedinců po narození):
-    \begin{table}[H]
-        \begin{tabular}{|c|r|}
-            \hline
-            generace & počet \\
-            \hline
-             0. &  800  \\
-             1. &  11019  \\
-             2. &  1314  \\
-             3. &  284  \\
-             4. &  74  \\
-             5. &  47  \\
-             6. &  21  \\
-             7. &  0  \\
-            \hline
-        \end{tabular}
-    \end{table}
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{.48\textwidth}
+            Pro velký poměr prodaných jedinců lze pozorovat postupné vyhynutí farmy (99 \% prodaných jedinců po narození):
+            \begin{center}
+                \begin{table}[H]
+                    \begin{tabular}{|c|r|}
+                        \hline
+                        generace & počet \\
+                        \hline
+                        0. & 800  \\
+                        1. & 11019  \\
+                        2. & 1314  \\
+                        3. & 284  \\
+                        4. & 74  \\
+                        5. & 47  \\
+                        6. & 21  \\
+                        7. & 0  \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+            \end{center}
+        \end{minipage}%
+        \begin{minipage}{.5\textwidth}
+            Pro nízký poměr lze pozorovat přebytky v generacích a tím i nutný (a neefektivní) prodej již narozené generace:
+            \begin{center}
+                \begin{table}[H]
+                    \begin{tabular}{|r|r|r|}
+                        \hline
+                        generace & počet & přebytek \\
+                        \hline
+                        0. & 800 & 0 \\
+                        1. & 11032 & 0 \\
+                        2. & 138535 & 110219 \\
+                        3. & 360772 & 331697 \\
+                        4. & 365604 & 336787 \\
+                        5. & 366491 & 336369 \\
+                        6. & 239687 & 187799 \\
+                        7. & 16546 & 7980 \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+            \end{center}
+        \end{minipage}
+    \end{figure}
 
     \subsection{Závěry experimentů}
 

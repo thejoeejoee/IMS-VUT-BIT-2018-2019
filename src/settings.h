@@ -39,7 +39,7 @@ VUT FIT
 #define MALE_KILL_PROBABILITY .95
 
 // 0-1 rate of crickets, that are NOT sold directly, but kept for next generation spawn
-#define YOUNG_CRICKET_KEEP_RATE .01 // sell 92.7 %
+#define YOUNG_CRICKET_KEEP_RATE .9 // sell 92.7 %
 
 // rate of females in generation
 #define FEMALE_RATE .5 // half
