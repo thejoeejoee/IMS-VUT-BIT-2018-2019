@@ -18,6 +18,7 @@ void Cricket::Behavior() {
     // grow into young level of cricket
     Wait(ADOLESCENCE_DURATION_BEFORE_SELL);
     feed_amount_stats(FEED_AMOUNT_ADOLESCENCE * ADOLESCENCE_DURATION_BEFORE_SELL);
+    power_consumption_stats(ADOLESCENCE_THERMAL_CONSUMPTION * ADOLESCENCE_DURATION_BEFORE_SELL);
 
     // first generation is not sold
     if (generation > 0 && Random() > YOUNG_CRICKET_KEEP_RATE) {
@@ -30,6 +31,7 @@ void Cricket::Behavior() {
     // grow into adult cricket
     Wait(adolescence_time - ADOLESCENCE_DURATION_BEFORE_SELL);
     feed_amount_stats(FEED_AMOUNT_ADOLESCENCE * (adolescence_time - ADOLESCENCE_DURATION_BEFORE_SELL));
+    power_consumption_stats(ADOLESCENCE_THERMAL_CONSUMPTION * (adolescence_time - ADOLESCENCE_DURATION_BEFORE_SELL));
 
     auto female = Random() > FEMALE_RATE;
     int eggs = 0;
@@ -51,6 +53,7 @@ void Cricket::Behavior() {
         }
         // feed for day
         feed_amount_stats(FEED_AMOUNT_ADULT);
+        power_consumption_stats(ADULT_THERMAL_CONSUMPTION);
         this->Activate(Time + 1);
     }
     egg_hist(eggs);

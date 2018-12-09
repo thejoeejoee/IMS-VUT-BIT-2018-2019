@@ -8,6 +8,7 @@
 Stat sold_adults_stats("Sold adult crickets (directly sold)");
 Stat sold_adolescents_stats("Sold adolescence crickets (directly sold)");
 Stat feed_amount_stats("Amount of feed (in mg)");
+Stat power_consumption_stats("Amount of thermal power consumed (Watt-days)");
 
 Histogram life_length_stats("Life length", 10, 10, 10);
 Histogram generation_hist("Generation histogram", 0, 1, 10);

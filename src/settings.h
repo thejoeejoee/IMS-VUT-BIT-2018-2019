@@ -41,7 +41,7 @@
 #define FEMALE_RATE .5 // half
 
 // count of crickets in initial generation (=0)
-#define INITIAL_GENERATION_COUNT 10 * 600 // one liter
+#define INITIAL_GENERATION_COUNT 10 * 800 // one liter
 
 // length of simulation
 #define SIMULATION_LENGTH 12 * 28 // 12 months
@@ -58,5 +58,16 @@
 // price of kilogram of feed
 #define FEED_KG_PRICE 800
 
+// how many watts needs one liter of crickets?
+#define CRICKET_LITER_THERMAL_CONSUMPTION 12.
+
+// power consumption for one adult cricket
+#define ADULT_THERMAL_CONSUMPTION (CRICKET_LITER_THERMAL_CONSUMPTION / ADULT_CRICKETS_IN_LITER)
+
+// power consumption for one adolescence cricket
+#define ADOLESCENCE_THERMAL_CONSUMPTION (CRICKET_LITER_THERMAL_CONSUMPTION / ADOLESCENCE_CRICKETS_IN_LITER)
+
+// price of one Watt-day
+#define POWER_PRICE (1.2 * 24 * 0.001)
 
 #endif //VUT_FIT_IMS_SETTINGS_H

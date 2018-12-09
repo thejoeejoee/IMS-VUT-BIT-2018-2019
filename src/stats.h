@@ -19,4 +19,6 @@ extern Stat sold_adolescents_stats;
 
 extern Stat feed_amount_stats;
 
+extern Stat power_consumption_stats;
+
 #endif //VUT_FIT_IMS_STATS_H
