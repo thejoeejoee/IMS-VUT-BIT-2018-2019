@@ -1,6 +1,10 @@
-//
-// Created by thejoeejoee on 4.12.18.
-//
+/****************************************************************
+Implementační část projektu do IMS.
+VUT FIT
+@author Josef Kolář, xkolar71
+@author Iva Kavánková, xkavan05
+@date 2018; 05; 12
+****************************************************************/
 
 #ifndef VUT_FIT_IMS_CRICKET_H
 #define VUT_FIT_IMS_CRICKET_H

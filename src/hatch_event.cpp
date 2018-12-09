@@ -1,6 +1,10 @@
-//
-// Created by thejoeejoee on 4.12.18.
-//
+/****************************************************************
+Implementační část projektu do IMS.
+VUT FIT
+@author Josef Kolář, xkolar71
+@author Iva Kavánková, xkavan05
+@date 2018; 05; 12
+****************************************************************/
 
 #include "../lib/simlib/src/simlib.h"
 #include "hatch_event.h"
