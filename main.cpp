@@ -26,8 +26,10 @@ int main() {
     (new InitialGenerationSpawn)->Activate();
     Run();
 
-    life_length_stats.Output();
+    // crickets_hatchery.Output();
+    // life_length_stats.Output();
     generation_hist.Output();
+    force_sold_adolescents_hist.Output();
     // egg_hist.Output();
     // sold_adults_stats.Output();
     // sold_adolescents_stats.Output();

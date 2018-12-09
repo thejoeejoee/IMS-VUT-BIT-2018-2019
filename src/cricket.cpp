@@ -21,12 +21,16 @@ void Cricket::Behavior() {
     power_consumption_stats(ADOLESCENCE_THERMAL_CONSUMPTION * ADOLESCENCE_DURATION_BEFORE_SELL);
 
     // first generation is not sold
-    if (generation > 0 && Random() > YOUNG_CRICKET_KEEP_RATE) {
+    // crickets over limit - all of them are sold
+    if (crickets_hatchery.Full() || (generation > 0 && Random() > YOUNG_CRICKET_KEEP_RATE)) {
         life_length_stats(Time - birth);
         sold_adolescents_stats(1);
+        if (crickets_hatchery.Full())
+            force_sold_adolescents_hist(generation);
+
         this->Terminate();
     }
-
+    crickets_hatchery.Enter(this, 1);
 
     // grow into adult cricket
     Wait(adolescence_time - ADOLESCENCE_DURATION_BEFORE_SELL);
@@ -48,6 +52,7 @@ void Cricket::Behavior() {
             // fight with other males
             if (Random() > MALE_KILL_PROBABILITY) {
                 life_length_stats(Time - birth);
+                crickets_hatchery.Leave(1);
                 this->Terminate();
             }
         }
@@ -59,4 +64,5 @@ void Cricket::Behavior() {
     egg_hist(eggs);
     sold_adults_stats(1);
     life_length_stats(Time - birth);
+    crickets_hatchery.Leave(1);
 }

@@ -19,6 +19,7 @@
 \usepackage{newverbs}
 \usepackage{lipsum}
 \usepackage{svg}
+\usepackage{gensymb}
 
 %\usepackage{fancyhdr}
 
@@ -106,12 +107,11 @@ aboveskip=0pt,
     k obrovské míře kanibalismu). Zde nakladená vejce se po čase vylíhnou a cyklus pokračuje dál. Jelikož je samička plodná pouze určitou dobu,
     je poté prodána. Prodáni jsou také zbylí samci, neboť již dále by nepřinášeli žádný další zisk. Jelikože dospělí cvrčci jsou větší,
     vejde se jich do litru na prodej méně, než mladších cvrčků. Jedinci pochopitelně konzumují různé množství potravy podle svého věku. Crvčci potřebují k
-    životu teplotu 28°C až 30°C\\
+    životu teplotu 28\degree C až 30 \degree C\\
     \\
     Shrnutí použitých číselných údajů pro model znázorňuje následující tabulka.
 
     \begin{table}[h]
-        \caption[Data]{Tabulka číselných údajů}
         \begin{tabular}{|c|c|c|}
 
             \hline
@@ -123,7 +123,7 @@ aboveskip=0pt,
             Doba od nakladení k vylíhnutí & (No) 2 týdny & Převazato z [\ref{kniha}]             \\ \hline
             Celková doba života jedince & (No) 12 týdnů & Ing. Kavánková                   \\ \hline
             Počet jedinců v 1 litru & 600 ks & Převazato z [\ref{forum}]             \\ \hline
-            Počet jedinců v 1 litru & 800 ks & Ing. Kavánková              \\ \hline
+            Počet nedospělých jedinců v 1 litru & 800 ks & Ing. Kavánková              \\ \hline
             Cena 1 litru jedinců k prodeji & 300 Kč & Průměrná hodnota z [\ref{cena}]       \\ \hline
             Denní úbytek samců po soubojích & 5 \%                  & Ing. Kavánková                   \\ \hline
             Denní množství potravy pro jedince starého 0 - 4 týdny & (No) 0,016 g & Převazato z [\ref{jidlo}]             \\ \hline
@@ -131,6 +131,7 @@ aboveskip=0pt,
             Cena 1 kg potravy & 800 Kč & Převazato z [\ref{forum}]             \\ \hline
             % TODO: doplnit topeni TOPENI & xx & yyy            \\ \hline
         \end{tabular}
+        % \caption[Data]{Tabulka číselných údajů}
     \end{table}
 
     \subsection{Použité postupy}
@@ -144,10 +145,12 @@ aboveskip=0pt,
 
     \subsection{Návrh konceptuálního modelu}
 
-    \begin{center}
-        \includegraphics[scale=0.7]{./assets/abstraktni_model.pdf}
-        \caption{Abstraktní schéma}
-    \end{center}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.7]{./assets/abstraktni_model.pdf}
+            \caption{Abstraktní schéma}
+        \end{center}
+    \end{figure}
 
     \subsection{Formy konceptuálního modelu}
 
@@ -173,15 +176,50 @@ aboveskip=0pt,
         \item \textbf{Množství jedinců na počátku} - Množství přímo ovlivňuje další průběh provozu farmy, především rychlost
         jejího \uv{nastartování}, tedy odchování dostatečného počtu jedinců k založení další generace a prodeji.
 
-        \item \textbf{Poměr jedinců k exportu} - Vzhledem k metodám chovu je nutno stanovit, jaké množství čerstvě vylíhnutých
-        jedinců je určeno k exportu a tím i jaké množství se následně množí a vytváří tak další generaci.
+        \item \textbf{Poměr jedinců k exportu} - Vzhledem k metodám chovu je nutno stanovit, jaké množství čerstvě
+        vylíhnutých jedinců je určeno k exportu (a tím i jaké množství se následně množí a vytváří tak další generaci).
+        Tento parametr je klíčový z hlediska udržení plné saturace farmy.
+
+        \item \textbf{Kapacita farmy} - Farma jako taková má omezenou kapacitu kvůli užitým generačním nádobám. Vzhledem
+        k realizaci modelu je tato hodnota pouze rámcová, nejedná se o pevný absolutní \uv{strop} pro počet jedinců.
     \end{itemize}
 
     \subsection{Postup experimentování}
 
-    Experimentování probíhalo pomocí úpravy těchto parametrů a přímou analýzou výsledků.
+    Při experimentování docházelo k úpravě výše uvedených parametrů a z výsledků simulace byly pozorovány následující
+    metriky:
+
+    \begin{itemize}
+        \item \textbf{Počet jedinců v generaci} - Pomocí této metriky lze sledovat generační vývoj chovu, především
+        jeho udržování v čase. Hodnota pro jednotlivou generaci velmi úzce souvisí s celkovou kapacitou farmy.
+        \item \textbf{Počet jedinců prodaných pro nadbytek} - Touto metrikou lze pozorovat počet vylíhnutých cvrčků tzv. \uv{nadpočetně},
+        tedy množství těch jedinců, kteří museli být prodáni kvůli omezené kapacitě farmy. Stejně jako předchozí metrika
+        je závislý na celkové kapacitě, ale také především na poměru jedinců učených k exportu.
+        \item \textbf{Finanční přehled běhu} - Ze zjištěných cen je spočítán finanční výsledek za simulované období.
+        Na jedné straně se jedná o výdaje na počáteční generaci cvrčků, krmení a topení pro farmu - na druhé straně poté
+        příjmy v podobě prodaných litrů cvrčků. Hlavním ukazatelem metriky je následně celkový hospodářský výsledek.
+    \end{itemize}
 
     \subsection{Dokumentace jednotlivých experimentů}
+
+    \subsubsection{Poměr jedinců k exportu}
+    Pro velký poměr prodaných jedinců lze pozorovat postupné vyhynutí farmy (99 \% prodaných jedinců po narození):
+    \begin{table}[H]
+        \begin{tabular}{|c|r|}
+            \hline
+            generace & počet \\
+            \hline
+             0. &  800  \\
+             1. &  11019  \\
+             2. &  1314  \\
+             3. &  284  \\
+             4. &  74  \\
+             5. &  47  \\
+             6. &  21  \\
+             7. &  0  \\
+            \hline
+        \end{tabular}
+    \end{table}
 
     \subsection{Závěry experimentů}
 

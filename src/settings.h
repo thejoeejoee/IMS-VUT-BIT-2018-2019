@@ -35,13 +35,13 @@
 #define MALE_KILL_PROBABILITY .95
 
 // 0-1 rate of crickets, that are NOT sold directly, but kept for next generation spawn
-#define YOUNG_CRICKET_KEEP_RATE .073 // sell 92.7 %
+#define YOUNG_CRICKET_KEEP_RATE .01 // sell 92.7 %
 
 // rate of females in generation
 #define FEMALE_RATE .5 // half
 
 // count of crickets in initial generation (=0)
-#define INITIAL_GENERATION_COUNT 10 * 800 // one liter
+#define INITIAL_GENERATION_COUNT 1 * 800 // one liter
 
 // length of simulation
 #define SIMULATION_LENGTH 12 * 28 // 12 months
@@ -69,5 +69,8 @@
 
 // price of one Watt-day
 #define POWER_PRICE (1.2 * 24 * 0.001)
+
+// soft cricket limit (not absolute value) - IMPORTANT
+#define CRICKETS_LIMIT 20'000
 
 #endif //VUT_FIT_IMS_SETTINGS_H

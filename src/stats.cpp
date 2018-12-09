@@ -11,5 +11,9 @@ Stat feed_amount_stats("Amount of feed (in mg)");
 Stat power_consumption_stats("Amount of thermal power consumed (Watt-days)");
 
 Histogram life_length_stats("Life length", 10, 10, 10);
-Histogram generation_hist("Generation histogram", 0, 1, 10);
+Histogram generation_hist("Generation histogram", 0, 1, 8);
 Histogram egg_hist("Eggs count histogram (for females)", 100, 20, 20);
+Histogram force_sold_adolescents_hist("Force sold crickets (no free places)", 0, 1, 10);
+
+
+Store crickets_hatchery("Free place for crickets", CRICKETS_LIMIT);
