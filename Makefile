@@ -5,11 +5,13 @@ FILES=$(shell find src/ -name '*.cpp' -or -name '*.h')
 
 OBJECTS=${FILES:.cpp=.o}
 
-.PHONY: all pack
+.PHONY: all pack doc pack run
 
 all: sim
 
-manual.pdf: doc/doc.tex doc/_titlepage.tex
+doc: doc.pdf
+
+doc.pdf: doc/doc.tex doc/_titlepage.tex
 	test -f doc/doc.tex && cd doc && pdflatex doc.tex && cd .. && mv doc/doc.pdf ./
 
 sim: main.cpp $(OBJECTS)
