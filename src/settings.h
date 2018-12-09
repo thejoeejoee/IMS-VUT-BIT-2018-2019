@@ -1,10 +1,10 @@
-/****************************************************************
-Implementační část projektu do IMS.
-VUT FIT
-@author Josef Kolář, xkolar71
-@author Iva Kavánková, xkavan05
-@date 2018; 05; 12
-****************************************************************/
+/**
+ * Part of implementation IMS project - cricket farm simulation.
+ * VUT FIT
+ * @author Josef Kolář, xkolar71
+ * @author Iva Kavánková, xkavan05
+ * @date 2018; 05; 12
+ */
 
 #ifndef VUT_FIT_IMS_SETTINGS_H
 #define VUT_FIT_IMS_SETTINGS_H
@@ -39,7 +39,7 @@ VUT FIT
 #define MALE_KILL_PROBABILITY .95
 
 // 0-1 rate of crickets, that are NOT sold directly, but kept for next generation spawn
-#define YOUNG_CRICKET_KEEP_RATE .9 // sell 92.7 %
+#define YOUNG_CRICKET_KEEP_RATE 1 // sell 92.7 %
 
 // rate of females in generation
 #define FEMALE_RATE .5 // half
@@ -75,6 +75,6 @@ VUT FIT
 #define POWER_PRICE (1.2 * 24 * 0.001)
 
 // soft cricket limit (not absolute value) - IMPORTANT
-#define CRICKETS_LIMIT 20'000
+#define CRICKETS_LIMIT (20'000 / 15.)
 
 #endif //VUT_FIT_IMS_SETTINGS_H

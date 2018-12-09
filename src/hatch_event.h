@@ -1,10 +1,10 @@
-/****************************************************************
-Implementační část projektu do IMS.
-VUT FIT
-@author Josef Kolář, xkolar71
-@author Iva Kavánková, xkavan05
-@date 2018; 05; 12
-****************************************************************/
+/**
+ * Part of implementation IMS project - cricket farm simulation.
+ * VUT FIT
+ * @author Josef Kolář, xkolar71
+ * @author Iva Kavánková, xkavan05
+ * @date 2018; 05; 12
+ */
 
 #ifndef VUT_FIT_IMS_HATCH_EVENT_H
 #define VUT_FIT_IMS_HATCH_EVENT_H
