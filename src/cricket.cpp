@@ -9,7 +9,6 @@
 #include "cricket.h"
 #include "hatch_event.h"
 #include "stats.h"
-#include "../lib/simlib/src/internal.h"
 #include "settings.h"
 #include <iostream>
 

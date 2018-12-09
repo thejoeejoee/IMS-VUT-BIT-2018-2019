@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 project(VUT_FIT_IMS)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(lib/simlib/src/)
 
 set(BASEFILES
     lib/simlib/src/atexit.cc

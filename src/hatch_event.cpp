@@ -6,7 +6,7 @@
  * @date 2018; 05; 12
  */
 
-#include "../lib/simlib/src/simlib.h"
+#include <simlib.h>
 #include "hatch_event.h"
 #include "cricket.h"
 #include "settings.h"

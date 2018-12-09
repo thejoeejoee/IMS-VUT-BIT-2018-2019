@@ -1,4 +1,4 @@
-#include "lib/simlib/src/simlib.h"
+#include <simlib.h>
 #include "src/hatch_event.h"
 #include "src/cricket.h"
 #include "src/stats.h"

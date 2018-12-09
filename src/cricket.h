@@ -10,7 +10,7 @@
 #define VUT_FIT_IMS_CRICKET_H
 
 
-#include "../lib/simlib/src/simlib.h"
+#include <simlib.h>
 
 
 class Cricket : public Process {

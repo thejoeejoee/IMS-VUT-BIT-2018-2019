@@ -10,7 +10,7 @@
 #define VUT_FIT_IMS_STATS_H
 
 #include "settings.h"
-#include "../lib/simlib/src/simlib.h"
+#include <simlib.h>
 
 extern Histogram life_length_stats;
 

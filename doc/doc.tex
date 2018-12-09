@@ -149,15 +149,13 @@ aboveskip=0pt,
     a třídy vhodné pro simulaci konkrétního zadání. Použité algoritmy byly použity ze slajdů k předmětu IMS (viz [\ref{ims}]), slajdy
     z prvního (viz [\ref{prvnidemo}]) a druhého (viz [\ref{druhedemo}]) demonstračního cvičení z tohoto předmětu.
 
-
-
     \section{Koncepce modelu}
 
     \subsection{Návrh konceptuálního modelu}
 
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[scale=0.7]{./assets/abstraktni_model.pdf}
+            \includegraphics[width=.8\textwidth]{./assets/abstraktni_model.pdf}
             \caption{Abstraktní schéma}
         \end{center}
     \end{figure}
@@ -239,7 +237,7 @@ aboveskip=0pt,
             \end{center}
         \end{minipage}%
         \begin{minipage}{.5\textwidth}
-            Pro nízký poměr lze pozorovat přebytky v generacích a tím i nutný (a neefektivní) prodej již narozené generace:
+            Pro nízký poměr lze pozorovat přebytky v generacích a tím i nutný prodej již narozené generace:
             \begin{center}
                 \begin{table}[H]
                     \begin{tabular}{|r|r|r|}
@@ -260,11 +258,41 @@ aboveskip=0pt,
             \end{center}
         \end{minipage}
     \end{figure}
+    \vspace{-20pt}
     \subsubsection{Kapacita farmy a celkový finanční výsledek}
+    Při tomto experimentu bychom rádi potvrdili domněnku nevýhodnosti líhnutí nové generace v případě, že je farma
+    kapacitně saturována a docházelo by tedy k přebytečnému stvoření nové generace.
 
+    Pro počáteční generaci 800 jedinců (jeden litr mladých cvrčků) při kapacitě farmy 20 000 kusů jedinců a poměru exportu nově narozených cvrčků 90 \%
+    je finanční výsledek za dobu simulace následující: \textit{(Dále budou prezentovány pouze celkové výsledky.)} \\
+    \texttt{
+        Sold: 130.097 l (appr. 39029 Kč)\\
+        Feed: 21.1237 kg (appr. 16898 Kč)\\
+        Power: 0.734442 WattDay (appr. 507 Kč)\\
+        Total: 21324 Kč\\
+    }
 
+    Úpravou velikost počáteční generace lze částečně ovlivňovat roční výsledek farmy, je zde ovšem zásadně limitující
+    kapacita farmy. Cvrčky lze považovat za tvory s vysokou reprodukcí, není tedy problém pro populaci za 1-2 generace
+    saturovat farmu (při aktuálním měřítku). Při stejných parametrech je pro farmu s počátečním počtem cvrčků 16 000
+    finanční výsledek \textbf{\texttt{Total: 23618 Kč}} - tedy nijak výrazný nárust zisku (oproti dvacetinásobné
+    počáteční populaci).
+
+    Za experimentování také stojí parametr udávající poměr exportovaných cvrčků týden po jejich vylíhnutí - především ve
+    dvojici s parametrem pro kapacitu farmy - ten je pro tento experiment zvýšen na nedosažitelnou hodnotu, řádově $10^24$.
+    S nastavením počáteční populace na 800 jedinců a poměru exportovaných mladých cvrčků na 25 \% je vidět exponenciální
+    nárust počtu jedinců - z původních 800 je v šesté generaci přes 2'500'000 jedinců (800, 11'002, 38'931, 136'712,
+    474'555, 1'653'306, 2'762'237). Zisk z této konfigurace farmy je neporovnatelný, ročně přesahuje 4'000'000 Kč. Na
+    druhou stranu, podhodnocení tohoto má za následek vyhubení farmy, jak je vidět výše.
 
     \subsection{Závěry experimentů}
+
+    Z provedených experimentů plynou jasné závěry:
+
+    \begin{itemize}
+        \item Díky vysoké reprodukční schopnosti je možné prodávat většinu cvrčků před dobou, než je schopen cvrček
+        reprodukovat se, resp. není ekonomické cvrčka živit a poté prodat před dospělostí.
+    \end{itemize}
 
     \section{Shrnutí simulačních experimentů a závěr}
     Jsme šikovní.
@@ -280,7 +308,7 @@ aboveskip=0pt,
         \bibitem{7} \label{forum} [Online] https://www.ifauna.cz/terarijni-zvirata/diskuse/detail/3524112/chov-cvrcku-v-cislech\#a3524888 [cit. 2018-12-05]
         \bibitem{8} \label{cena} [Online] https://www.broukarna.cz/cvrcci/cvrcek-bananovy-2-2/ [cit. 2018-12-05]
         \bibitem{9} \label{topeni} [Online] https://www.labet.cz/chov-krmneho-hmyzu-cvrcci-px1083117/ [cit. 2018-12-05]
-        \bibitem{10} \label{cena_topeni} [Online] https://www.usetreno.cz/energie-elektrina/cena-elektriny/?fbclid=IwAR1lzm7r9tYNMn3mybOLlhC5RaqRPkxcBne9DHqta_xXsJCGsajPkz4VLRM [cit. 2018-12-05]
+        \bibitem{10} \label{cena_topeni} [Online] https://www.usetreno.cz/energie-elektrina/cena-elektriny/ [cit. 2018-12-05]
     \end{thebibliography}
 
 \end{document}
