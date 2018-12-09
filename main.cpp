@@ -1,3 +1,11 @@
+/**
+ * Part of implementation IMS project - cricket farm simulation.
+ * VUT FIT
+ * @author Josef Kolář, xkolar71
+ * @author Iva Kavánková, xkavan05
+ * @date 2018; 05; 12
+ */
+
 #include <simlib.h>
 #include "src/hatch_event.h"
 #include "src/cricket.h"
